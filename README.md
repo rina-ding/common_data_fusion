@@ -202,7 +202,7 @@ You can change the hyperparameters to be tuned under the `Tuned parameters` sect
 
 If you are not using UCLA IDx's MRI data, you may want to change `roi_size` and `resampled_spacing` to best reflect your data.
 
-## UCLA IDx prostate MRI data info (just in case you need it)
+## UCLA IDx prostate MRI data info 
 
 - Clinial data
 
@@ -236,7 +236,7 @@ Within each case, the only things you need are:
 
 `Prost*.nii.gz`: the prostate contour annotation for the cases under `/radraid/ruiwending/prostate_data/cleaned_cases_with_annotations_feb_2025`
 
-## PICAI data
+## PICAI data info
 
 This is a publicly available prostate MRI cohort from [here](https://github.com/DIAGNijmegen/picai_labels)
 
