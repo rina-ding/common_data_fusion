@@ -8,10 +8,12 @@ Notes:
 5. We assume that the users have nodule contour annotations for the imaging data.
 6. Note that when you use deep CCA as the fusion method, you might get errors when computing the CCA loss due numericial instability. Rina tried to adjust some CCA loss related parameters but a lot of times, the program will still fail. In that case, you need to skip that run, unless you can find a solution to debug.
 7. For cross attention fusion, the code assumes you do two-way attention instead of only one-way.
+8. In the future, if needed for any reason, the exact (uncleaned) code that Rina used for the prostate BCR prediction is under `/radraid/ruiwending/modeling/prostate_data_fusion/ucla_bcr`, for prostate csPCa classification is under `/radraid/ruiwending/modeling/prostate_data_fusion/ucla_cspca`, for prostate PIRADS classification is under `/radraid/ruiwending/modeling/prostate_data_fusion/ucla_pirads`, for lung malignancy classification is under `/radraid/ruiwending/modeling/lung_data_fusion/nlst_diagnosis`.
 
 
-## Rina's writeup
-The writeup of this project is in Chapter 7 of Rina's dissertation [here](https://drive.google.com/file/d/1Qw86mGwi1_jRhEJ48_p2_1kQkTV1C913/view?usp=sharing)
+## Rina's writeup and slides
+- The writeup of this project is in Chapter 7 of Rina's dissertation [here](https://drive.google.com/file/d/1Qw86mGwi1_jRhEJ48_p2_1kQkTV1C913/view?usp=sharing)
+- Slides are [here](https://docs.google.com/presentation/d/1p2YAfoOuo9b5kHmZUfxrX1CXjVRkiiq0hQ7f5XMdft4/edit?usp=sharing)
 
 ## Required packages
 First, create a pytorch docker container using:
