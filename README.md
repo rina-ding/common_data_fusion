@@ -201,3 +201,52 @@ CUDA_VISIBLE_DEVICES=0 python main.py --path_to_image_data_csv ../prostate_data.
 You can change the hyperparameters to be tuned under the `Tuned parameters` section in `main.py`, by adding more values for each hyperparameter. You can also change things like "number of epochs" under the `Not tuned parameters` section. 
 
 If you are not using UCLA IDx's MRI data, you may want to change `roi_size` and `resampled_spacing` to best reflect your data.
+
+## UCLA IDx prostate MRI data info (just in case you need it)
+
+- Clinial data
+
+```
+/radraid/ruiwending/prostate_data/updated_feb_2025
+```
+
+`clinical.csv`: contains all the clinical variables except for PSA values.
+
+`IDx_Prostate_PSA_FULL_20250214.csv`: PSA values.
+
+`Data Dictionary.pdf` and `User Document.pdf`: the documentation provided by the IDx 
+
+You don't really need to use the other files under this folder.
+
+- MRI data and nodule contour anontations
+
+`/radraid/ruiwending/prostate_data/cleaned_cases_with_annotations` contains the first batch and `/radraid/ruiwending/prostate_data/cleaned_cases_with_annotations_feb_2025` contains the second batch. These 2 batches do not overlap and they are just cases that were collected at an older or more recent time. These are the cases that have nodule contour annotations and MRI data (T2W and ADC sequences) available.
+
+Within each case, the only things you need are:
+
+`image_n4_corrected.nii.gz`: N4 bias field corrected T2W sequence
+
+`registered*adc.nii`: * means any strings but most importantly, this file must start with "registered". This file is ADC sequences registered to T2W, and the reason for the registration is that the nodule contour annotations were done on T2W, and we want to apply the annotations to ADC as well. The registration was done in Matlab using affine registration, and the code is under `/radraid/ruiwending/prostate_data/register_adc_to_t2w`
+
+`Lesion*.nii.gz`: the nodule contour annotation for the cases under `/radraid/ruiwending/prostate_data/cleaned_cases_with_annotations`
+
+`Prostate.nii.gz`: the prostate contour annotation for the cases under `/radraid/ruiwending/prostate_data/cleaned_cases_with_annotations`
+
+`TgLs*.nii.gz`: the nodule contour annotation for the cases under `/radraid/ruiwending/prostate_data/cleaned_cases_with_annotations_feb_2025`
+
+`Prost*.nii.gz`: the prostate contour annotation for the cases under `/radraid/ruiwending/prostate_data/cleaned_cases_with_annotations_feb_2025`
+
+## PICAI data
+
+This is a publicly available prostate MRI cohort from [here](https://github.com/DIAGNijmegen/picai_labels)
+
+Rina already downloaded the images and annotations and put them under `/radraid/ruiwending/prostate_data/prostate_picai_data`
+
+Specifically, the images are under `./dataset0`, `./dataset1`, `./dataset2`, `./dataset3`, `./dataset4`
+
+The nodule contour annotations are under `./csPCa_lesion_delineations`
+
+The prostate contour annotations are under `./anatomical_delineations/whole_gland`
+
+The clinical features are under `./clinical_information`
+
